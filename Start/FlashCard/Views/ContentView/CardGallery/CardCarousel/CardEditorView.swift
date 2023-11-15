@@ -8,7 +8,7 @@ A view for editing the content of a card.
 import SwiftUI
 
 struct CardEditorView: View {
-    @ObservedObject var card: Card
+    @Bindable var card: Card // (3) 데이터 바인딩의 간소화 (@Model 매크로 안에 @Observable 매크로가 포함되어 있지 않을까?)
     @FocusState private var focusedField: FocusedField?
 
     var body: some View {
