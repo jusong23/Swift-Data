@@ -6,9 +6,12 @@ The main view that contains the majority of the app's content.
 */
 
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
-    @State private var cards: [Card] = SampleDeck.contents
+    @Query private var cards: [Card] // (4) @Query 를 통해 Observable 유형의 속성이 변경되면 데이터를 자동으로 View에 업데이트
+    /// [모델 컨테이너]에서 [모델 컨텍스트]를 가져와 데이터 소스로 사용
+    /// 정렬, 필터링 및 애니메이션 변경을 구성하는 간단한 구문을
     @State private var editing = false
     @State private var navigationPath: [Card] = []
 
